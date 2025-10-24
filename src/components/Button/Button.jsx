@@ -44,21 +44,27 @@ const StyledButton = styled(MuiButton, {
 
   const config = densityConfig[density];
 
-  // Disabled styles (same for all button types)
-  const disabledStyles = disabled ? {
-    backgroundColor: systemColors.interactive.disabled.background.subtle,
-    color: systemColors.interactive.disabled.on.subtle,
-    borderColor: systemColors.interactive.disabled.border.default,
-    cursor: 'not-allowed',
+  // Loading state (same for all button types)
+  const loadingStyles = {
+    backgroundColor: systemColors.interactive.readOnly.background.strong,
+    color: systemColors.text.knockout,
+    borderColor: systemColors.interactive.readOnly.border.default,
+    cursor: 'wait',
     pointerEvents: 'none',
-  } : {};
+  };
 
-  // Appearance-based styles
+  // Appearance-based styles (including disabled states specific to each type)
   const appearanceStyles = {
     primary: {
-      backgroundColor: systemColors.interactive.primary.background.default,
-      color: systemColors.interactive.primary.on.default,
-      border: `${borders.width.thin}px solid ${systemColors.interactive.primary.border.default}`,
+      backgroundColor: disabled
+        ? systemColors.interactive.disabled.background.subtle
+        : systemColors.interactive.primary.background.default,
+      color: disabled
+        ? systemColors.interactive.disabled.on.subtle
+        : systemColors.interactive.primary.on.default,
+      border: `${borders.width.thin}px solid ${disabled
+        ? systemColors.interactive.disabled.border.default
+        : systemColors.interactive.primary.border.default}`,
       
       '&:hover': disabled ? {} : {
         backgroundColor: systemColors.interactive.primary.background.hover,
@@ -79,9 +85,15 @@ const StyledButton = styled(MuiButton, {
     },
     
     secondary: {
-      backgroundColor: systemColors.interactive.secondary.background.default,
-      color: systemColors.interactive.secondary.on.default,
-      border: `${borders.width.thin}px solid ${systemColors.interactive.secondary.border.default}`,
+      backgroundColor: disabled
+        ? systemColors.interactive.disabled.background.subtle
+        : systemColors.interactive.secondary.background.default,
+      color: disabled
+        ? systemColors.interactive.disabled.on.subtle
+        : systemColors.interactive.secondary.on.default,
+      border: `${borders.width.thin}px solid ${disabled
+        ? systemColors.interactive.disabled.border.default
+        : systemColors.interactive.secondary.border.default}`,
       
       '&:hover': disabled ? {} : {
         backgroundColor: systemColors.interactive.secondary.background.hover,
@@ -102,8 +114,11 @@ const StyledButton = styled(MuiButton, {
     },
     
     tertiary: {
+      // Tertiary keeps transparent background/border when disabled
       backgroundColor: systemColors.interactive.tertiary.background.default,
-      color: systemColors.interactive.tertiary.on.default,
+      color: disabled
+        ? systemColors.interactive.disabled.on.subtle
+        : systemColors.interactive.tertiary.on.default,
       border: `${borders.width.thin}px solid ${systemColors.interactive.tertiary.border.default}`,
       
       '&:hover': disabled ? {} : {
@@ -159,8 +174,10 @@ const StyledButton = styled(MuiButton, {
       boxShadow: shadows.none,
     },
     
+    // Add cursor style for disabled
+    ...(disabled ? { cursor: 'not-allowed', pointerEvents: 'none' } : {}),
+    
     ...appearanceStyles[appearance],
-    ...disabledStyles,
   };
 });
 
@@ -175,20 +192,50 @@ const Button = React.forwardRef(({
   onClick,
   ...props
 }, ref) => {
+  // Create spinner for loading state
+  const LoadingSpinner = () => (
+    <span style={{ 
+      display: 'inline-block',
+      width: '16px',
+      height: '16px',
+      border: '2px solid currentColor',
+      borderTop: '2px solid transparent',
+      borderRadius: '50%',
+      animation: 'spin 0.6s linear infinite',
+    }} />
+  );
+  
   return (
-    <StyledButton
-      ref={ref}
-      appearance={appearance}
-      density={density}
-      disabled={disabled || loading}
-      startIcon={leftIcon}
-      endIcon={rightIcon}
-      onClick={onClick}
-      disableRipple
-      {...props}
-    >
-      {loading ? 'Loading...' : children}
-    </StyledButton>
+    <>
+      <style>
+        {`
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        `}
+      </style>
+      <StyledButton
+        ref={ref}
+        appearance={appearance}
+        density={density}
+        disabled={disabled || loading}
+        startIcon={loading ? <LoadingSpinner /> : leftIcon}
+        endIcon={loading ? null : rightIcon}
+        onClick={onClick}
+        disableRipple
+        style={loading ? {
+          backgroundColor: systemColors.interactive.readOnly.background.strong,
+          color: systemColors.text.knockout,
+          borderColor: systemColors.interactive.readOnly.border.default,
+          cursor: 'wait',
+          pointerEvents: 'none',
+        } : {}}
+        {...props}
+      >
+        {children}
+      </StyledButton>
+    </>
   );
 });
 
