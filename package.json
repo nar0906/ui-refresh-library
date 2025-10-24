@@ -1,0 +1,31 @@
+{
+  "name": "cocounsel-ui-refresh-library",
+  "version": "1.0.0",
+  "description": "CoCounsel 3.0 Component Library - Token-based React + MUI components",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "react",
+    "component-library",
+    "mui",
+    "design-tokens",
+    "cocounsel"
+  ],
+  "author": "Nargis",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/material": "^6.1.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.1"
+  }
+}
