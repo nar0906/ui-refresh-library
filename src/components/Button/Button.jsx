@@ -205,6 +205,30 @@ const Button = React.forwardRef(({
     }} />
   );
   
+  // Loading state styles - different for tertiary
+  const getLoadingStyles = () => {
+    if (!loading) return {};
+    
+    if (appearance === 'tertiary') {
+      return {
+        backgroundColor: 'transparent',
+        color: systemColors.interactive.readOnly.on.subtle,
+        borderColor: 'transparent',
+        cursor: 'wait',
+        pointerEvents: 'none',
+      };
+    }
+    
+    // Primary and Secondary loading
+    return {
+      backgroundColor: systemColors.interactive.readOnly.background.strong,
+      color: systemColors.text.knockout,
+      borderColor: systemColors.interactive.readOnly.border.default,
+      cursor: 'wait',
+      pointerEvents: 'none',
+    };
+  };
+  
   return (
     <>
       <style>
@@ -224,13 +248,7 @@ const Button = React.forwardRef(({
         endIcon={loading ? null : rightIcon}
         onClick={onClick}
         disableRipple
-        style={loading ? {
-          backgroundColor: systemColors.interactive.readOnly.background.strong,
-          color: systemColors.text.knockout,
-          borderColor: systemColors.interactive.readOnly.border.default,
-          cursor: 'wait',
-          pointerEvents: 'none',
-        } : {}}
+        style={getLoadingStyles()}
         {...props}
       >
         {children}
