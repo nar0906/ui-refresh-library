@@ -56,6 +56,9 @@ function Demo() {
             <Button appearance="primary" density="compact" disabled>
               Disabled
             </Button>
+            <Button appearance="primary" density="compact" loading>
+              Loading
+            </Button>
           </Stack>
 
           <Typography variant="h6" sx={{ mb: 2 }}>Extra-Compact Density (24px)</Typography>
@@ -68,6 +71,9 @@ function Demo() {
             </Button>
             <Button appearance="primary" density="extra-compact" disabled>
               Disabled
+            </Button>
+            <Button appearance="primary" density="extra-compact" loading>
+              Loading
             </Button>
           </Stack>
         </Box>
@@ -92,6 +98,9 @@ function Demo() {
             <Button appearance="secondary" density="standard" disabled>
               Disabled
             </Button>
+            <Button appearance="secondary" density="standard" loading>
+              Loading
+            </Button>
           </Stack>
 
           <Typography variant="h6" sx={{ mb: 2 }}>Compact Density (32px)</Typography>
@@ -105,6 +114,9 @@ function Demo() {
             <Button appearance="secondary" density="compact" disabled>
               Disabled
             </Button>
+            <Button appearance="secondary" density="compact" loading>
+              Loading
+            </Button>
           </Stack>
 
           <Typography variant="h6" sx={{ mb: 2 }}>Extra-Compact Density (24px)</Typography>
@@ -114,6 +126,9 @@ function Demo() {
             </Button>
             <Button appearance="secondary" density="extra-compact" disabled>
               Disabled
+            </Button>
+            <Button appearance="secondary" density="extra-compact" loading>
+              Loading
             </Button>
           </Stack>
         </Box>
@@ -138,6 +153,9 @@ function Demo() {
             <Button appearance="tertiary" density="standard" disabled>
               Disabled
             </Button>
+            <Button appearance="tertiary" density="standard" loading>
+              Loading
+            </Button>
           </Stack>
 
           <Typography variant="h6" sx={{ mb: 2 }}>Compact Density (32px)</Typography>
@@ -151,6 +169,9 @@ function Demo() {
             <Button appearance="tertiary" density="compact" disabled>
               Disabled
             </Button>
+            <Button appearance="tertiary" density="compact" loading>
+              Loading
+            </Button>
           </Stack>
 
           <Typography variant="h6" sx={{ mb: 2 }}>Extra-Compact Density (24px)</Typography>
@@ -160,6 +181,9 @@ function Demo() {
             </Button>
             <Button appearance="tertiary" density="extra-compact" disabled>
               Disabled
+            </Button>
+            <Button appearance="tertiary" density="extra-compact" loading>
+              Loading
             </Button>
           </Stack>
         </Box>
