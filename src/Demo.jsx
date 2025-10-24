@@ -218,20 +218,20 @@ function Demo() {
             Navigation buttons for side panels. 32px height, transparent default with gray hover.
           </Typography>
           <Stack spacing={1} sx={{ maxWidth: 300 }}>
-            <SideNavButton leftIcon={<span>☰</span>}>
-              Menu Item
+            <SideNavButton leftIcon={<span>+</span>}>
+              Label text
             </SideNavButton>
-            <SideNavButton leftIcon={<span>📁</span>} rightIcon={<span>›</span>}>
-              Folder with Arrow
+            <SideNavButton leftIcon={<span>+</span>} rightIcon={<span>+</span>}>
+              Label text
             </SideNavButton>
-            <SideNavButton leftIcon={<span>⚙</span>}>
-              Settings
+            <SideNavButton>
+              Label text (no icons)
             </SideNavButton>
-            <SideNavButton leftIcon={<span>📄</span>} disabled>
-              Disabled Item
+            <SideNavButton leftIcon={<span>+</span>} disabled>
+              Label text
             </SideNavButton>
-            <SideNavButton leftIcon={<span>⟳</span>} loading>
-              Loading Item
+            <SideNavButton leftIcon={<span>+</span>} loading>
+              Label text
             </SideNavButton>
           </Stack>
         </Box>
