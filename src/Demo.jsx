@@ -11,6 +11,7 @@ import theme from './theme/theme';
 import Button from './components/Button';
 import SendButton from './components/SendButton';
 import StopButton from './components/StopButton';
+import SideNavButton from './components/SideNavButton';
 
 function Demo() {
   return (
@@ -205,6 +206,33 @@ function Demo() {
             <StopButton tooltip="Stop" />
             <StopButton tooltip="Stop (top)" tooltipPlacement="top" />
             <StopButton disabled />
+          </Stack>
+        </Box>
+
+        <Divider sx={{ my: 4 }} />
+
+        {/* Side Nav Buttons */}
+        <Box sx={{ mb: 6 }}>
+          <Typography variant="h4" sx={{ mb: 3 }}>Side Nav Buttons</Typography>
+          <Typography variant="body1" sx={{ mb: 2 }}>
+            Navigation buttons for side panels. 32px height, transparent default with gray hover.
+          </Typography>
+          <Stack spacing={1} sx={{ maxWidth: 300 }}>
+            <SideNavButton leftIcon={<span>☰</span>}>
+              Menu Item
+            </SideNavButton>
+            <SideNavButton leftIcon={<span>📁</span>} rightIcon={<span>›</span>}>
+              Folder with Arrow
+            </SideNavButton>
+            <SideNavButton leftIcon={<span>⚙</span>}>
+              Settings
+            </SideNavButton>
+            <SideNavButton leftIcon={<span>📄</span>} disabled>
+              Disabled Item
+            </SideNavButton>
+            <SideNavButton leftIcon={<span>⟳</span>} loading>
+              Loading Item
+            </SideNavButton>
           </Stack>
         </Box>
 
