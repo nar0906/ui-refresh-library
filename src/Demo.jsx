@@ -9,6 +9,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import { Box, Typography, Divider, Stack } from '@mui/material';
 import theme from './theme/theme';
 import Button from './components/Button';
+import SendButton from './components/SendButton';
+import StopButton from './components/StopButton';
 
 function Demo() {
   return (
@@ -185,6 +187,24 @@ function Demo() {
             <Button appearance="tertiary" density="extra-compact" loading>
               Loading
             </Button>
+          </Stack>
+        </Box>
+
+        <Divider sx={{ my: 4 }} />
+
+        {/* Send & Stop Buttons */}
+        <Box sx={{ mb: 6 }}>
+          <Typography variant="h4" sx={{ mb: 3 }}>Send & Stop Buttons</Typography>
+          <Typography variant="body1" sx={{ mb: 2 }}>
+            Circular icon buttons with tooltips on hover. 28px diameter, primary button styling.
+          </Typography>
+          <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
+            <SendButton tooltip="Send message" />
+            <SendButton tooltip="Send message (top)" tooltipPlacement="top" />
+            <SendButton disabled />
+            <StopButton tooltip="Stop" />
+            <StopButton tooltip="Stop (top)" tooltipPlacement="top" />
+            <StopButton disabled />
           </Stack>
         </Box>
 
