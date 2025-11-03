@@ -9,6 +9,7 @@
 import React from 'react';
 import { IconButton, Tooltip } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import StopIcon from '@mui/icons-material/Stop';
 import { systemColors, coreColors } from '../../tokens/colors';
 import spacing from '../../tokens/spacing';
 import borders from '../../tokens/borders';
@@ -69,9 +70,7 @@ const StopButton = React.forwardRef(({
       disableRipple
       {...props}
     >
-      <span style={{ fontFamily: '"Font Awesome 6 Sharp"', fontWeight: 900 }}>
-        ■
-      </span>
+      <StopIcon />
     </StyledIconButton>
   );
 

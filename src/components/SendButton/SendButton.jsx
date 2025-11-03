@@ -9,6 +9,7 @@
 import React from 'react';
 import { IconButton, Tooltip } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { systemColors, coreColors } from '../../tokens/colors';
 import spacing from '../../tokens/spacing';
 import borders from '../../tokens/borders';
@@ -68,9 +69,7 @@ const SendButton = React.forwardRef(({
       disableRipple
       {...props}
     >
-      <span style={{ fontFamily: '"Font Awesome 6 Sharp"', fontWeight: 300 }}>
-        ↑
-      </span>
+      <ArrowUpwardIcon />
     </StyledIconButton>
   );
 

@@ -117,7 +117,6 @@ const SideNavButton = React.forwardRef(({
         endIcon={loading ? null : rightIcon}
         onClick={onClick}
         disableRipple
-        fullWidth
         style={loadingStyles}
         {...props}
       >
