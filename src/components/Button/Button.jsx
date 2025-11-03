@@ -1,3 +1,4 @@
+'use client';
 /**
  * CoCounsel 3.0 Button Component
  * 

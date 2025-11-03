@@ -1,3 +1,4 @@
+'use client';
 /**
  * Anchor Component
  * 
